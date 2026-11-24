@@ -1,13 +1,9 @@
-/* Provider and voice settings dialog. */
-.provider-settings-dialog{width:min(560px,calc(100vw - 32px));max-height:88vh;overflow:auto}
-.provider-settings-dialog form{display:grid;gap:14px}
-.provider-settings-dialog .dialog-head{margin-bottom:0}
-.provider-settings-dialog h3{margin:0;color:var(--text);font-size:16px}
-.provider-settings-dialog hr{width:100%;border:0;border-top:1px solid var(--border)}
-.settings-notice{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
-.settings-field{display:grid;gap:7px;color:var(--text);font-size:13px}
-.settings-field input,.settings-field select{box-sizing:border-box;width:100%;min-height:40px;padding:9px 11px;border:1px solid var(--border);border-radius:8px;background:var(--panel-soft);color:var(--text);font:inherit}
-.settings-field input:focus,.settings-field select:focus{outline:2px solid var(--cyan);outline-offset:1px}
-.settings-check{display:flex;align-items:center;gap:9px;color:var(--text);font-size:13px}
-.settings-check input{accent-color:var(--cyan)}
-.settings-save{justify-self:start}
+.memory-panel{max-height:520px;overflow:auto}
+.smart-memory-item,.smart-document-item{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.smart-memory-item span,.smart-document-item span{min-width:0;overflow-wrap:anywhere}
+.smart-memory-item small,.smart-document-item small{display:block;color:var(--muted);margin-bottom:2px}
+.smart-memory-item button,.smart-document-item button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:16px}
+.document-upload{display:block;margin-top:8px}
+.document-upload input{position:absolute;inline-size:1px;block-size:1px;opacity:0}
+.document-upload span{display:flex;justify-content:center;width:100%;box-sizing:border-box;padding:8px;border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:13px}
+.document-list{display:grid;margin-top:6px}

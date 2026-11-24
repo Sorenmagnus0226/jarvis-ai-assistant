@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
@@ -11,6 +13,11 @@ class ChatRequest(BaseModel):
 class ProviderSettingsRequest(BaseModel):
     api_key: str | None = Field(default=None, max_length=512)
     model: str | None = Field(default=None, min_length=1, max_length=160)
+
+
+class MemoryRequest(BaseModel):
+    content: str = Field(min_length=1, max_length=20_000)
+    category: str = Field(default="general", min_length=1, max_length=50)
 
 
 class MessageResponse(BaseModel):
