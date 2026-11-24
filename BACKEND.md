@@ -1,19 +1,10 @@
 ## Backend
 
-The backend is a FastAPI service with SQLite conversation and message storage. It adds secure server-side provider credentials and supports OpenAI-compatible APIs plus Claude and Gemini adapters.
+The backend is a FastAPI service with SQLite conversation and message storage. It adds server-side provider credentials and supports OpenAI-compatible APIs plus Claude and Gemini adapters. For desktop use, `desktop.py` starts the API on loopback and opens the frontend in a native webview.
 
-### Run
+### Desktop setup
 
-```bash
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env
-# Add only the credentials you intend to use to .env
-uvicorn backend.main:app --reload
-```
-
-Open `http://127.0.0.1:8000/docs` for the API documentation and `http://127.0.0.1:8000` for the frontend.
+See [README.md](README.md) for source setup, native webview requirements, smoke tests, and PyInstaller test-bundle commands.
 
 ### API
 
@@ -32,4 +23,4 @@ curl -X POST http://127.0.0.1:8000/api/chat \
   -d '{"message":"Hello Jarvis","provider":"openai","model":"gpt-4o-mini"}'
 ```
 
-Credentials are read only from environment variables. Never commit `.env` or provider keys. The SQLite file belongs under `backend/data/` and should not be committed.
+Credentials are read from environment variables or a local, untracked `.env`. Never package or commit `.env` or provider keys. Database files are stored in the per-user app-data directory by default.

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 
-from .config import CORS_ORIGINS, DEFAULT_MODEL, DEFAULT_PROVIDER
+from .config import APP_ROOT, CORS_ORIGINS, DEFAULT_MODEL, DEFAULT_PROVIDER
 from .database import Base, engine, get_db
 from .models import Conversation, Message
 from .providers import ProviderError, available_providers, chat_completion
@@ -83,4 +83,4 @@ def delete_conversation(conversation_id: int, db: Session = Depends(get_db)):
     return {"deleted": conversation_id}
 
 
-app.mount("/", StaticFiles(directory=".", html=True), name="frontend")
+app.mount("/", StaticFiles(directory=str(APP_ROOT), html=True), name="frontend")

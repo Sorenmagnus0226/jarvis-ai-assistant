@@ -1,14 +1,20 @@
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+from platformdirs import user_data_dir
 
-load_dotenv()
+if getattr(sys, "frozen", False):
+    APP_ROOT = Path(getattr(sys, "_MEIPASS", Path(sys.executable).parent))
+else:
+    APP_ROOT = Path(__file__).resolve().parent.parent
 
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
+load_dotenv(APP_ROOT / ".env")
+
+DATA_DIR = Path(os.getenv("JARVIS_DATA_DIR", user_data_dir("Jarvis AI Assistant", appauthor=False)))
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DATA_DIR / 'jarvis.db'}")
