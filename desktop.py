@@ -1,4 +1,4 @@
-"""Launch Jarvis in a native desktop window with a loopback-only API server."""
+"""Launch Kaizen in a native desktop window with a loopback-only API server."""
 
 from __future__ import annotations
 
@@ -38,7 +38,7 @@ def main() -> int:
             raise RuntimeError("The local API server did not start. Check the console output for details.")
 
         webview.create_window(
-            "Jarvis AI Assistant",
+            "Kaizen AI Assistant",
             f"http://127.0.0.1:{port}",
             width=1280,
             height=850,
