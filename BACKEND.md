@@ -1,26 +1,16 @@
 ## Backend
 
-The backend is a FastAPI service with SQLite conversation and message storage. It adds server-side provider credentials and supports OpenAI-compatible APIs plus Claude and Gemini adapters. For desktop use, `desktop.py` starts the API on loopback and opens the frontend in a native webview.
+The backend is a FastAPI service named **Kaizen AI Assistant**. It uses SQLite conversation and message storage and supports OpenAI-compatible providers plus Claude and Gemini adapters.
 
-### Desktop setup
-
-See [README.md](README.md) for source setup, native webview requirements, smoke tests, and PyInstaller test-bundle commands.
+The desktop launcher starts the API only on loopback and opens the frontend in a native webview.
 
 ### API
 
-- `GET /api/health` — service and provider status
-- `GET /api/providers` — available providers and defaults
-- `GET /api/conversations` — conversation summaries
-- `GET /api/conversations/{id}` — conversation and messages
-- `POST /api/chat` — create or continue a conversation
-- `DELETE /api/conversations/{id}` — delete one conversation
+- `GET /api/health`
+- `GET /api/providers`
+- `GET /api/conversations`
+- `GET /api/conversations/{id}`
+- `POST /api/chat`
+- `DELETE /api/conversations/{id}`
 
-Example:
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/chat \
-  -H 'content-type: application/json' \
-  -d '{"message":"Hello Jarvis","provider":"openai","model":"gpt-4o-mini"}'
-```
-
-Credentials are read from environment variables or a local, untracked `.env`. Never package or commit `.env` or provider keys. Database files are stored in the per-user app-data directory by default.
+Credentials remain outside source control in `.env` or process memory. Database and app data use the `Kaizen AI Assistant` application directory unless `KAIZEN_DATA_DIR` is set.

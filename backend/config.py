@@ -14,10 +14,10 @@ else:
 
 load_dotenv(APP_ROOT / ".env")
 
-DATA_DIR = Path(os.getenv("JARVIS_DATA_DIR", user_data_dir("Jarvis AI Assistant", appauthor=False)))
+DATA_DIR = Path(os.getenv("KAIZEN_DATA_DIR", user_data_dir("Kaizen AI Assistant", appauthor=False)))
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DATA_DIR / 'jarvis.db'}")
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DATA_DIR / 'kaizen.db'}")
 DEFAULT_PROVIDER = os.getenv("AI_PROVIDER", "openai")
 DEFAULT_MODEL = os.getenv("AI_MODEL", "gpt-4o-mini")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
