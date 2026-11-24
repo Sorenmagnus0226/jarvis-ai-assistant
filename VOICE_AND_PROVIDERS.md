@@ -1,0 +1,2 @@
+- Provider keys and model preferences can be configured from the desktop Settings button. Provider keys entered there remain in backend process memory only and are discarded when Jarvis exits; they are not written to `.env` or browser storage. Re-enter keys after restarting the app.
+- Voice input uses the platform webview's speech recognition where available. Voice language and optional reply speech are controlled in Settings; microphone permission and speech availability depend on the operating system webview.
